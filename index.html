@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="İnsan boşaltım sistemini görseller, etkileşimli etkinlikler ve mini testlerle öğrenin.">
+<title>İnsan Boşaltım Sistemi | İnteraktif Biyoloji</title>
+<style>
+:root{--navy:#14243d;--blue:#2864dc;--cyan:#dff5f4;--ink:#24334b;--muted:#64748b;--paper:#f4f7fb;--white:#fff;--green:#16845b;--line:#e3eaf3;--shadow:0 12px 35px #172b4d12}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Arial,Helvetica,sans-serif}
+header{background:linear-gradient(115deg,#14243d,#2457a8);color:white;padding:22px max(20px,calc((100% - 1120px)/2));}
+.brand{font-weight:800;letter-spacing:.08em;font-size:.82rem;color:#b9d5ff}.hero{max-width:1120px;margin:0 auto;padding:25px 0 12px}.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;margin:10px 0}.hero p{max-width:680px;color:#dbe8ff;margin:12px 0 22px}
+nav{display:flex;flex-wrap:wrap;gap:8px;max-width:1120px;margin:0 auto;padding:12px 0 4px}
+nav button{border:1px solid #ffffff55;background:#ffffff12;color:white;padding:9px 13px;border-radius:999px;cursor:pointer;font-weight:700}nav button:hover,nav button.active{background:white;color:#1c4383}
+main{max-width:1120px;margin:26px auto;padding:0 18px 50px}.page{display:none}.page.active{display:block;animation:appear .25s ease}@keyframes appear{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
+h2{font-size:1.8rem;margin:0 0 8px;color:var(--navy)}h3{color:var(--navy);margin:0 0 8px}.intro{color:var(--muted);margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);min-width:0}.wide{grid-column:1/-1}
+.pill{display:inline-block;background:#e8f0ff;color:#2456a5;padding:4px 10px;border-radius:99px;font-size:.78rem;font-weight:700;margin-bottom:8px}
+.system-wrap{background:linear-gradient(135deg,#e9f8f7,#edf3ff);border-radius:18px;padding:12px;display:grid;place-items:center}
+svg{max-width:100%;height:auto}.hotspot{cursor:pointer;outline:none}.hotspot circle{fill:#fff;stroke:#2864dc;stroke-width:3}.hotspot text{font-size:15px;font-weight:800;fill:#17428e;text-anchor:middle;dominant-baseline:middle;pointer-events:none}.hotspot:focus circle,.hotspot:hover circle{fill:#ffdf83;stroke:#a96c00}
+.info-panel{margin-top:14px;background:#f2f7ff;border-left:4px solid var(--blue);padding:14px 16px;border-radius:10px;min-height:88px}
+.info-panel strong{display:block;color:#173e80;margin-bottom:3px}
+.organ-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.organ{padding:13px;border:1px solid var(--line);border-radius:13px;background:#fff}.organ b{display:block;color:#2456a5}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.step{background:#f0f6ff;border-radius:14px;padding:15px}.step span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#2864dc;color:white;font-weight:800;margin-bottom:8px}
+button.action{border:0;border-radius:11px;background:var(--blue);color:white;padding:11px 17px;font-weight:700;cursor:pointer}button.action:hover{background:#194daF}button.secondary{background:#eaf0f8;color:#24334b}button:focus-visible{outline:3px solid #f5b942;outline-offset:3px}
+.quiz-q{font-weight:700;font-size:1.08rem;margin:8px 0 12px}.answers{display:grid;gap:9px}.answers button{text-align:left;border:1px solid var(--line);background:white;border-radius:12px;padding:12px;cursor:pointer;color:var(--ink)}.answers button:hover{border-color:var(--blue);background:#f4f8ff}.answers button.correct{background:#e5f7ed;border-color:#2b9a63}.answers button.wrong{background:#fff0ef;border-color:#d65c53}
+.feedback{margin-top:12px;font-weight:700;min-height:28px}.progress{height:9px;background:#e8edf5;border-radius:99px;overflow:hidden;margin:12px 0}.progress div{height:100%;width:0;background:#2864dc;transition:width .2s}
+footer{text-align:center;color:var(--muted);padding:24px;border-top:1px solid var(--line);font-size:.9rem}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.organ-list{grid-template-columns:1fr}header{padding-left:18px;padding-right:18px}}
+@media print{header nav,.action{display:none!important}.page{display:block!important;page-break-after:always}body{background:white}.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">BİYOLOJİ • ETKİLEŞİMLİ ÖĞRENME</div>
+ <div class="hero">
+  <h1>İnsan Boşaltım Sistemi</h1>
+  <p>Vücudumuzdaki atık maddelerin nasıl uzaklaştırıldığını keşfet. Organları incele, böbreğin yapısını öğren ve mini testle bilgini dene.</p>
+ </div>
+ <nav aria-label="Ana gezinme">
+  <button class="active" data-page="home">Ana Sayfa</button>
+  <button data-page="organs">Organlar</button>
+  <button data-page="kidney">Böbrek ve Nefron</button>
+  <button data-page="urine">İdrar Oluşumu</button>
+  <button data-page="health">Sağlıklı Yaşam</button>
+  <button data-page="quiz">Mini Test</button>
+ </nav>
+</header>
+<main>
+<section id="home" class="page active">
+ <div class="grid">
+  <article class="card">
+   <span class="pill">Konuya giriş</span>
+   <h2>Boşaltım sistemi nedir?</h2>
+   <p>Boşaltım, metabolizma sonucunda oluşan atık maddelerin ve vücuttaki fazla su ile tuzun uzaklaştırılmasıdır. Bu sistem, vücudun iç dengesinin (homeostazi) korunmasına yardım eder.</p>
+   <h3>Sistemin temel görevleri</h3>
+   <ul><li>Kandaki üre gibi atık maddeleri uzaklaştırmak.</li><li>Su ve mineral dengesini düzenlemek.</li><li>Kan hacmi ve basıncının düzenlenmesine katkı sağlamak.</li><li>Vücudun iç ortamının dengede kalmasına yardımcı olmak.</li></ul>
+   <button class="action" onclick="showPage('organs')">Organları keşfet →</button>
+  </article>
+  <article class="card">
+   <span class="pill">Etkileşimli görsel</span>
+   <h2>Boşaltım sistemi şeması</h2>
+   <p class="intro">Numaralara dokunarak organların adını ve görevini öğren.</p>
+   <div class="system-wrap">
+    <svg viewBox="0 0 440 470" role="img" aria-label="İnsan boşaltım sistemi şeması; böbrekler, üreterler, mesane ve üretra">
+     <path d="M220 34 C160 34 120 76 120 145 L135 260 Q145 300 180 310 L180 390 L260 390 L260 310 Q295 300 305 260 L320 145 C320 76 280 34 220 34Z" fill="#ffffff" stroke="#b6c8dc" stroke-width="3"/>
+     <path d="M183 115 C145 88 112 115 115 160 C118 196 153 205 178 177 C196 157 199 130 183 115Z" fill="#c85c68" stroke="#8e3441" stroke-width="3"/>
+     <path d="M257 115 C295 88 328 115 325 160 C322 196 287 205 262 177 C244 157 241 130 257 115Z" fill="#c85c68" stroke="#8e3441" stroke-width="3"/>
+     <path d="M174 177 Q185 240 205 300" fill="none" stroke="#e3a43c" stroke-width="8" stroke-linecap="round"/>
+     <path d="M266 177 Q255 240 235 300" fill="none" stroke="#e3a43c" stroke-width="8" stroke-linecap="round"/>
+     <path d="M205 300 Q220 285 235 300 Q253 330 220 346 Q187 330 205 300Z" fill="#e8c45d" stroke="#a77c20" stroke-width="3"/>
+     <path d="M220 346 L220 380" stroke="#e3a43c" stroke-width="8" stroke-linecap="round"/>
+     <g class="hotspot" tabindex="0" role="button" aria-label="1 Böbrek" onclick="showInfo('kidneyInfo')" onkeydown="hotspotKey(event,'kidneyInfo')"><circle cx="105" cy="132" r="17"/><text x="105" y="132">1</text></g>
+     <g class="hotspot" tabindex="0" role="button" aria-label="2 Üreter" onclick="showInfo('ureterInfo')" onkeydown="hotspotKey(event,'ureterInfo')"><circle cx="285" cy="244" r="17"/><text x="285" y="244">2</text></g>
+     <g class="hotspot" tabindex="0" role="button" aria-label="3 Mesane" onclick="showInfo('bladderInfo')" onkeydown="hotspotKey(event,'bladderInfo')"><circle cx="265" cy="320" r="17"/><text x="265" y="320">3</text></g>
+     <g class="hotspot" tabindex="0" role="button" aria-label="4 Üretra" onclick="showInfo('urethraInfo')" onkeydown="hotspotKey(event,'urethraInfo')"><circle cx="250" cy="380" r="17"/><text x="250" y="380">4</text></g>
+    </svg>
+   </div>
+   <div class="info-panel" id="homeInfo" aria-live="polite"><strong>Bir numaraya tıkla</strong>Şemadaki organların görevleri burada açıklanacak.</div>
+  </article>
+  <article class="card wide">
+   <h3>İdrarın izlediği yol</h3>
+   <div class="steps">
+    <div class="step"><span>1</span><b>Böbrek</b><br>Kandaki atıklar süzülür ve idrar oluşur.</div>
+    <div class="step"><span>2</span><b>Üreter</b><br>İdrarı böbrekten mesaneye taşır.</div>
+    <div class="step"><span>3</span><b>Mesane</b><br>İdrarı geçici olarak depolar.</div>
+    <div class="step"><span>4</span><b>Üretra</b><br>İdrarın vücuttan atılmasını sağlar.</div>
+   </div>
+  </article>
+ </div>
+</section>
+
+<section id="organs" class="page">
+ <h2>Boşaltım sistemi organları</h2><p class="intro">Her organın kendine özgü bir görevi vardır.</p>
+ <div class="grid">
+  <article class="card"><span class="pill">1 • Böbrek</span><h3>Kanı süzer</h3><p>Omurganın iki yanında bulunan, fasulye biçimindeki organlardır. Kandaki atık maddeleri, fazla suyu ve bazı mineralleri süzerek idrar oluşumunu sağlar.</p></article>
+  <article class="card"><span class="pill">2 • Üreter</span><h3>İdrarı taşır</h3><p>Her böbrekten mesaneye uzanan iki ince kaslı kanaldır. Dalga şeklindeki kasılmalarla idrarı mesaneye iletir.</p></article>
+  <article class="card"><span class="pill">3 • Mesane</span><h3>İdrarı depolar</h3><p>Esnek ve kaslı bir kesedir. Böbreklerden gelen idrarı, vücuttan atılıncaya kadar geçici olarak depolar.</p></article>
+  <article class="card"><span class="pill">4 • Üretra</span><h3>İdrarı dışarı atar</h3><p>Mesaneden başlayarak idrarın vücut dışına taşınmasını sağlayan kanaldır.</p></article>
+  <article class="card wide"><h3>Boşaltıma yardımcı olan yapılar</h3><p><b>Akciğerler:</b> Karbondioksit ve su buharını uzaklaştırır. <b>Deri:</b> Terleme yoluyla su, tuz ve az miktarda üre atar. <b>Karaciğer:</b> Amonyağın daha az zehirli olan üreye dönüştürülmesinde görev alır. Bu organlar böbreklerle birlikte vücuttan atık uzaklaştırılmasına katkı sağlar.</p></article>
+ </div>
+</section>
+
+<section id="kidney" class="page">
+ <h2>Böbreğin iç yapısı ve nefron</h2><p class="intro">Böbreğin süzme işlevinin temel birimi nefrondur.</p>
+ <div class="grid">
+  <article class="card">
+   <h3>Böbreğin kesit şeması</h3>
+   <div class="system-wrap">
+    <svg viewBox="0 0 420 320" role="img" aria-label="Böbrek kesiti: kabuk, öz bölge ve havuzcuk">
+     <path d="M205 35 C90 8 38 100 58 190 C75 273 160 294 235 257 C293 229 320 168 286 110 C267 76 239 48 205 35Z" fill="#bd5966" stroke="#873846" stroke-width="5"/>
+     <path d="M200 59 C118 43 76 112 91 185 C104 244 163 260 221 231 C266 208 283 158 256 113 C240 86 220 68 200 59Z" fill="#e7a0a0" stroke="#fff" stroke-width="4"/>
+     <path d="M215 83 L255 133 L228 166 L262 190 L221 225 L188 190 L215 161 L184 132Z" fill="#e8c45d" stroke="#a77c20" stroke-width="3"/>
+     <path d="M255 133 Q310 140 332 173 L365 190" fill="none" stroke="#e3a43c" stroke-width="14" stroke-linecap="round"/>
+     <g font-size="13" font-weight="700" fill="#24334b"><text x="12" y="42">Kabuk bölgesi</text><path d="M105 45 L128 78" stroke="#24334b" fill="none"/><text x="10" y="292">Öz bölge</text><path d="M95 278 L142 228" stroke="#24334b" fill="none"/><text x="285" y="48">Havuzcuk</text><path d="M304 54 L242 130" stroke="#24334b" fill="none"/></g>
+    </svg>
+   </div>
+   <p class="intro">Şema öğretim amaçlı sadeleştirilmiştir; gerçek böbreğin tüm ayrıntılarını göstermez.</p>
+  </article>
+  <article class="card">
+   <h3>Nefronun temel bölümleri</h3>
+   <div class="system-wrap">
+    <svg viewBox="0 0 420 310" role="img" aria-label="Nefron şeması: glomerulus, Bowman kapsülü, tüpler ve toplayıcı kanal">
+     <path d="M92 90 C50 45 125 30 140 75 C150 110 83 120 91 80 C100 43 160 55 153 100" fill="none" stroke="#cf5963" stroke-width="9" stroke-linecap="round"/>
+     <path d="M150 98 C190 105 195 150 165 164 C130 180 150 220 198 205 C250 190 226 125 265 128 C305 131 287 196 320 203" fill="none" stroke="#e2a43c" stroke-width="10" stroke-linecap="round"/>
+     <path d="M320 70 L320 260" stroke="#2864dc" stroke-width="12" stroke-linecap="round"/>
+     <ellipse cx="120" cy="83" rx="56" ry="53" fill="none" stroke="#2864dc" stroke-width="4"/>
+     <g font-size="12" font-weight="700" fill="#24334b"><text x="8" y="20">Bowman kapsülü</text><path d="M98 25 L108 36" stroke="#24334b"/><text x="182" y="35">Glomerulus</text><path d="M174 39 L145 60" stroke="#24334b"/><text x="145" y="250">Nefron tüpü</text><path d="M205 236 L215 207" stroke="#24334b"/><text x="280" y="285">Toplayıcı kanal</text><path d="M320 265 L320 249" stroke="#24334b"/></g>
+    </svg>
+   </div>
+  </article>
+  <article class="card wide">
+   <h3>Nefron ne yapar?</h3>
+   <ol><li><b>Süzülme:</b> Kan, glomerulus kılcallarından süzülür; su ve küçük moleküller Bowman kapsülüne geçer.</li><li><b>Geri emilim:</b> Vücudun ihtiyaç duyduğu su ve yararlı maddelerin önemli bir bölümü kana geri alınır.</li><li><b>Salgılama:</b> Bazı atık ve iyonlar tüplere aktarılır.</li><li><b>İdrarın yoğunlaştırılması:</b> Su ve tuz dengesi ayarlanır; son idrar toplayıcı kanallara geçer.</li></ol>
+  </article>
+ </div>
+</section>
+
+<section id="urine" class="page">
+ <h2>İdrar nasıl oluşur?</h2><p class="intro">İdrar oluşumu nefronlarda gerçekleşen birden fazla aşamadan oluşur.</p>
+ <div class="grid">
+  <article class="card"><span class="pill">Aşama 1</span><h3> süzülme</h3><p>Kan, glomerulus adı verilen kılcal damar yumağında basınçla süzülür. Su ve küçük moleküller Bowman kapsülüne geçer; kan hücreleri ve büyük proteinler normalde kanda kalır.</p></article>
+  <article class="card"><span class="pill">Aşama 2</span><h3>Geri emilim</h3><p>Glikoz, amino asitler, gerekli iyonlar ve suyun büyük bölümü nefron tüplerinden tekrar kana alınır.</p></article>
+  <article class="card"><span class="pill">Aşama 3</span><h3>Salgılama</h3><p>Hidrojen ve potasyum iyonları ile bazı atık maddeler kandan nefron tüplerine aktarılır. Bu işlem dengeye katkı sağlar.</p></article>
+  <article class="card"><span class="pill">Aşama 4</span><h3>Atılma</h3><p>Oluşan idrar toplayıcı kanallardan böbrek havuzcuğuna, oradan üreterlere ve mesaneye geçer. Üretra yoluyla vücuttan uzaklaştırılır.</p></article>
+  <article class="card wide"><h3>İdrarın içinde neler bulunur?</h3><p>Normal idrarın büyük bölümü sudur. Bunun yanında üre, kreatinin ve çeşitli iyonlar bulunur. İdrarın miktarı ve yoğunluğu; alınan sıvıya, beslenmeye, çevre koşullarına ve hormonların etkisine göre değişebilir.</p></article>
+ </div>
+</section>
+
+<section id="health" class="page">
+ <h2>Boşaltım sisteminin sağlığını korumak</h2><p class="intro">Günlük alışkanlıklar böbrek ve idrar yolları sağlığını destekler.</p>
+ <div class="grid">
+  <article class="card"><h3><span class="pill">1</span><br>Yeterli su iç</h3><p>Gün boyunca düzenli sıvı almak vücudun su dengesini destekler. İhtiyaç kişiye, aktiviteye ve hava koşullarına göre değişir.</p></article>
+  <article class="card"><h3><span class="pill">2</span><br>Dengeli beslen</h3><p>Aşırı tuz tüketiminden kaçınmak ve çeşitli besinler tüketmek genel sağlığa katkı sağlar.</p></article>
+  <article class="card"><h3><span class="pill">3</span><br>Tuvalet ihtiyacını erteleme</h3><p>İdrar ihtiyacını uzun süre tutmamaya ve kişisel hijyene dikkat etmeye çalış.</p></article>
+  <article class="card"><h3><span class="pill">4</span><br>Hareketli ol</h3><p>Düzenli fiziksel aktivite ve sağlıklı yaşam alışkanlıkları böbrek sağlığını da destekler.</p></article>
+  <article class="card wide"><h3>Unutma</h3><p>Şiddetli ağrı, idrarda kan görülmesi, ateşle birlikte idrar yakınmaları veya devam eden sorunlarda bir sağlık uzmanına başvurulmalıdır. Bu sayfa eğitim amaçlıdır; tanı veya tedavi yerine geçmez.</p></article>
+ </div>
+</section>
+
+<section id="quiz" class="page">
+ <h2>Bilgini dene: Mini test</h2><p class="intro">Soruyu oku, doğru seçeneğe tıkla. Test sonunda puanını görebilirsin.</p>
+ <div class="card">
+  <div><b id="qCount">Soru 1 / 8</b><div class="progress"><div id="progressBar"></div></div></div>
+  <div class="quiz-q" id="question"></div><div class="answers" id="answers"></div>
+  <div class="feedback" id="feedback" aria-live="polite"></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="action" id="nextBtn" disabled>Sonraki soru →</button><button class="action secondary" id="restartBtn">Testi yeniden başlat</button></div>
+  <div id="result" class="info-panel" style="display:none;margin-top:18px"></div>
+ </div>
+</section>
+</main>
+<footer>İnsan Boşaltım Sistemi • İnteraktif Biyoloji Çalışması</footer>
+<script>
+const details={
+ kidneyInfo:["BÖBREK","Kanı süzer; üre gibi atıkların, fazla suyun ve minerallerin idrarla uzaklaştırılmasını sağlar."],
+ ureterInfo:["ÜRETER","Böbreklerde oluşan idrarı kasılma hareketleriyle mesaneye taşır."],
+ bladderInfo:["MESANE","İdrarı vücuttan atılana kadar geçici olarak depolayan kaslı organdır."],
+ urethraInfo:["ÜRETRA","İdrarın mesaneden vücut dışına çıkmasını sağlayan kanaldır."]
+};
+function showInfo(id){const d=details[id];document.getElementById("homeInfo").innerHTML="<strong>"+d[0]+"</strong>"+d[1]}
+function hotspotKey(e,id){if(e.key==="Enter"||e.key===" "){e.preventDefault();showInfo(id)}}
+function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+const questions=[
+ {q:"Kanın süzülerek idrarın oluştuğu temel organ hangisidir?",a:["Akciğer","Böbrek","Mide","Kalp"],c:1,e:"Böbrekler kanı süzer ve idrar oluşumunu sağlar."},
+ {q:"Böbrekten mesaneye idrarı hangi yapı taşır?",a:["Üretra","Atardamar","Üreter","Nefron"],c:2,e:"Üreterler böbrekleri mesaneye bağlayan kanallardır."},
+ {q:"İdrar geçici olarak nerede depolanır?",a:["Mesane","Böbrek kabuğu","Karaciğer","Akciğer"],c:0,e:"Mesane idrarı geçici olarak depolar."},
+ {q:"Nefronun temel görevi nedir?",a:["Besinleri çiğnemek","Kanı süzüp idrar oluşumuna katkı sağlamak","Oksijen taşımak","Hareketi sağlamak"],c:1,e:"Nefron böbreğin işlevsel birimidir."},
+ {q:"Aşağıdakilerden hangisi boşaltıma yardımcı olur?",a:["Deri","Kemik","Göz","Kulak"],c:0,e:"Deri terleme yoluyla su ve tuz atılmasına katkı sağlar."},
+ {q:"İdrar oluşumunda ihtiyaç duyulan maddelerin kana geri alınmasına ne denir?",a:["Salgılama","Geri emilim","Solunum","Sindirim"],c:1,e:"Geri emilimde gerekli maddeler nefron tüplerinden kana döner."},
+ {q:"İdrar vücuttan hangi yapı ile dışarı atılır?",a:["Üretra","Üreter","Böbrek","Glomerulus"],c:0,e:"Üretra idrarın vücut dışına çıkış yoludur."},
+ {q:"Aşağıdakilerden hangisi böbreğin görevlerinden biridir?",a:["Kanı pompalamak","Görmeyi sağlamak","Su ve mineral dengesine katkı sağlamak","Besinleri parçalamak"],c:2,e:"Böbrekler su ve mineral dengesinin düzenlenmesine yardım eder."}
+];
+let qi=0,score=0,answered=false;
+const qEl=document.getElementById("question"),aEl=document.getElementById("answers"),fb=document.getElementById("feedback"),next=document.getElementById("nextBtn"),result=document.getElementById("result");
+function renderQuestion(){answered=false;const q=questions[qi];document.getElementById("qCount").textContent=`Soru ${qi+1} / ${questions.length}`;document.getElementById("progressBar").style.width=(qi/questions.length*100)+"%";qEl.textContent=q.q;aEl.innerHTML="";fb.textContent="";next.disabled=true;result.style.display="none";q.a.forEach((a,i)=>{const b=document.createElement("button");b.textContent=String.fromCharCode(65+i)+") "+a;b.addEventListener("click",()=>answer(i,b));aEl.appendChild(b)})}
+function answer(i,btn){if(answered)return;answered=true;const q=questions[qi];[...aEl.children].forEach((b,j)=>{b.disabled=true;if(j===q.c)b.classList.add("correct")});if(i===q.c){score++;fb.textContent="Doğru! "+q.e;fb.style.color="#16845b"}else{btn.classList.add("wrong");fb.textContent="Tam değil. "+q.e;fb.style.color="#b34b43"}next.disabled=false;document.getElementById("progressBar").style.width=((qi+1)/questions.length*100)+"%"}
+next.addEventListener("click",()=>{if(qi<questions.length-1){qi++;renderQuestion()}else{qEl.textContent="Test tamamlandı!";aEl.innerHTML="";fb.textContent="";next.disabled=true;result.style.display="block";result.innerHTML="<strong>Sonucun: "+score+" / "+questions.length+"</strong>"+(score===questions.length?"Harika! Tüm soruları doğru cevapladın.":score>=5?"Güzel iş! Konuları tekrar ederek daha da iyi olabilirsin.":"Organlar ve idrar oluşumu bölümlerini tekrar inceleyip yeniden deneyebilirsin.");}});
+document.getElementById("restartBtn").addEventListener("click",()=>{qi=0;score=0;renderQuestion()});
+renderQuestion();
+</script>
+</body>
+</html>
